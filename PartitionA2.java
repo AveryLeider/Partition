@@ -13,16 +13,16 @@ class PartitionA2
 
  public static void main(String[] args)
  {
-   long startTime = System.currentTimeMillis();
+   long startTime = System.nanoTime();
    Partition(6,4);
-   long stopTime = System.currentTimeMillis();
+   long stopTime = System.nanoTime();
    long elapsedTime=stopTime-startTime;
    System.out.println(" ");
-   System.out.println("Time Complexity is "+elapsedTime+"  milliseconds !");
-   MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
+   System.out.println("Time Complexity is "+elapsedTime+"  nanoseconds !");
+   System.out.println("Time Complexity is "+TimeUnit.NANOSECONDS.toMillis(elapsedTime)+"  milliseconds !");
    ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
-   System.out.println(String.format("Heap: Init: %d, Used: %d, Committed: %d, Max: %d", memBean.getHeapMemoryUsage().getInit(), memBean.getHeapMemoryUsage().getUsed(), memBean.getHeapMemoryUsage().getCommitted(), memBean.getHeapMemoryUsage().getMax()));
-   System.out.println("Thread Time Complexity" + TimeUnit.NANOSECONDS.toMillis(threadBean.getCurrentThreadCpuTime()) + " ms");
+   System.out.println("Thread count: " + threadBean.getThreadCount());
+   System.out.println("Thread Time Complexity " + TimeUnit.NANOSECONDS.toMillis(threadBean.getCurrentThreadCpuTime()) + " ms");
    }
    static void  Partition(int n,int k)
    {
