@@ -23,7 +23,7 @@ public class Net {
 
 		{
 
-			System.out.println(prefix);
+		//	System.out.println(prefix);
 
 		}
 
@@ -38,21 +38,21 @@ public class Net {
 	}
 
 	public static void main(String[] args) {
+		if(args.length == 0) { 
+			System.out.println("Usage: java net [integer to partition]");
+			return; 
+		}
 		long startTime = System.nanoTime();
-		int n;
-		Scanner scan = new Scanner(System.in);
-		System.out.println("enter the value of n");
-		n = scan.nextInt();
+		partition(Integer.parseInt(args[0]));
+                long stopTime = System.nanoTime();
 
-		partition(n);
-                                    long stopTime = System.nanoTime();
    		long elapsedTime=stopTime-startTime;
-   		System.out.println(" ");
-   		System.out.println("Time Complexity is "+elapsedTime+"  nanoseconds !");
-   System.out.println("Time Complexity is "+TimeUnit.NANOSECONDS.toMillis(elapsedTime)+"  milliseconds !");
-   ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
-   System.out.println("Thread count: " + threadBean.getThreadCount());
-   System.out.println("Thread Time Complexity " + TimeUnit.NANOSECONDS.toMillis(threadBean.getCurrentThreadCpuTime()) + " ms");
+   		System.out.println(elapsedTime + " nanoseconds");
+   		//System.out.println("Time Complexity is "+elapsedTime+"  nanoseconds !");
+		//System.out.println("Time Complexity is "+TimeUnit.NANOSECONDS.toMillis(elapsedTime)+"  milliseconds !");
+		//ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
+		//System.out.println("Thread count: " + threadBean.getThreadCount());
+		//System.out.println("Thread Time Complexity " + TimeUnit.NANOSECONDS.toMillis(threadBean.getCurrentThreadCpuTime()) + " ms");
 	}
 
 }
